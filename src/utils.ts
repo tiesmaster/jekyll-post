@@ -68,18 +68,18 @@ openFile(fileName: string): Promise<vscode.TextEditor> {
 }
 
 export async function
-getFileNameFromUser(): Promise<string> {
-  const defaultFileName = "new-post.md";
+getPostTitleFromUser(): Promise<string> {
+  const defaultTitle = "";
   let question = `What's the name of the new post?`;
 
-  let filePath = await vscode.window.showInputBox({
+  let title = await vscode.window.showInputBox({
     prompt: question,
-    value: defaultFileName,
+    value: defaultTitle,
   });
-  if (filePath === null || filePath === undefined) {
-    return defaultFileName;
+  if (title === null || title === undefined) {
+    return defaultTitle;
   }
-  return filePath || defaultFileName;
+  return title || defaultTitle;
 }
 
 export function
