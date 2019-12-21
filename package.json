@@ -34,10 +34,12 @@
 			}
 		],
 		"menus": {
-			"explorer/context": [{
-				"command": "extension.jekyllPost",
-				"group": "navigation@2"
-			}]
+			"explorer/context": [
+				{
+					"command": "extension.jekyllPost",
+					"group": "navigation@2"
+				}
+			]
 		}
 	},
 	"scripts": {
