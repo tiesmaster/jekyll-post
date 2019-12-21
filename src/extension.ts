@@ -25,7 +25,10 @@ export function activate(context: vscode.ExtensionContext) {
         // Insert snippet only if the user did not provide a template file and
         // a new post file had to be created
         if (shouldInsertFrontMatter()) {
-          const snippetStr = postSnippet.replace("YYYY", getDateTime());
+          const snippetStr = postSnippet
+            .replace("YYYY", getDateTime())
+            .replace("TITLE", postTitle);
+
           editor.insertSnippet(new vscode.SnippetString(snippetStr));
           setFrontMatter(false);
         }

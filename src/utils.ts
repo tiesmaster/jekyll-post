@@ -3,16 +3,13 @@ import * as path from "path";
 import * as fs from "fs";
 
 export const postSnippet: string = `---
-layout: $\{1:post\}
-title: $\{2\}
+layout: post
+title: TITLE
 date: YYYY
-category: $\{3\}
-author: $\{4\}
-tags: [$\{5\}]
-summary: $\{6\}
+categories: jekyll setup-dev-blog series
 ---
 
-$\{7\}`;
+$\{1\}`;
 
 var insertFrontMatter: boolean = false;
 
