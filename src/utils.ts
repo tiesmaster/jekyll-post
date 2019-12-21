@@ -1,6 +1,7 @@
 import * as vscode from "vscode";
 import * as path from "path";
 import * as fs from "fs";
+import * as moment from "moment";
 
 export const postSnippet: string = `---
 layout: post
@@ -78,14 +79,7 @@ export async function getPostTitleFromUser(): Promise<string> {
 
 export function getDateTime(): string {
   var today = new Date();
-  var dd = String(today.getDate()).padStart(2, "0");
-  var mm = String(today.getMonth() + 1).padStart(2, "0");
-  var yyyy = today.getFullYear();
-  var time =
-    String(today.getHours()).padStart(2, "0") +
-    ":" +
-    String(today.getMinutes()).padStart(2, "0");
-  return yyyy + "-" + mm + "-" + dd + " " + time;
+  return moment().format("YYYY-MM-DD HH:mm:ss ZZ");
 }
 
 export function addDateToFilename(fileName: string): string {
