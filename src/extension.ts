@@ -3,6 +3,7 @@ import * as vscode from "vscode";
 import {
   addDateToFilename,
   getPostTitleFromUser,
+  convertTitleToFileName,
   openFile,
   createFile,
   postSnippet,
@@ -16,7 +17,9 @@ export function activate(context: vscode.ExtensionContext) {
     "extension.jekyllPost",
     async (uri: vscode.Uri) => {
       const dirName = uri.fsPath;
-      const userFilePath = addDateToFilename(await getPostTitleFromUser());
+      const postTitle = await getPostTitleFromUser();
+      const fileName = convertTitleToFileName(postTitle);
+      const userFilePath = addDateToFilename(fileName);
       try {
         let editor = await openFile(await createFile(dirName, userFilePath));
         // Insert snippet only if the user did not provide a template file and
