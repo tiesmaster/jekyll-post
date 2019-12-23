@@ -67,3 +67,10 @@ There are no extension-specific settings for now.
 
 * [ ] Location and name of post template file should be configurable
 * [ ] Tab-based navigation with user-provided post template
+
+
+# Deployment
+
+ * Bundle the extension
+   * `vsce package`
+ * Run the command: Install from VSIX
