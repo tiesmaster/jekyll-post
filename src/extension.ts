@@ -27,7 +27,7 @@ export function activate(context: vscode.ExtensionContext) {
         if (shouldInsertFrontMatter()) {
           const snippetStr = postSnippet
             .replace("YYYY", getDateTime())
-            .replace("TITLE", postTitle);
+            .replace("TITLE", '"' + postTitle + '"');
 
           editor.insertSnippet(new vscode.SnippetString(snippetStr));
           setFrontMatter(false);
