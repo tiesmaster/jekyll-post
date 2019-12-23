@@ -17,7 +17,7 @@ export function activate(context: vscode.ExtensionContext) {
     "extension.jekyllPost",
     async (uri: vscode.Uri) => {
       const dirName = uri.fsPath;
-      const postTitle = await getPostTitleFromUser();
+      const postTitle = '"' + (await getPostTitleFromUser()) + '"';
       const fileName = convertTitleToFileName(postTitle);
       const userFilePath = addDateToFilename(fileName);
       try {
